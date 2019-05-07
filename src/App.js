@@ -7,9 +7,8 @@ function App() {
   return (
     <div className="App">
       <h1>PokeThings</h1> 
-      <VisibilityButton label="all" />
-      <VisibilityButton label="caught" />
-      <VisibilityButton label="uncaught" />
+      <VisibilityButton />
+
 
       <PokeList />
     </div>

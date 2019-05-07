@@ -15,16 +15,16 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    
+
     return {
-        handleClick: (label) => {
-            dispatch(setVisibilityAll(label));
+        handleAll: () => {
+            dispatch(setVisibilityAll());
         },
-        handleClick: (label) => {
-            dispatch(setVisibilityCaught(label));
+        handleCaught: () => {
+            dispatch(setVisibilityCaught());
         },
-        handleClick: (label) => {
-            dispatch(setVisibilityUncaught(label));
+        handleUncaught: () => {
+            dispatch(setVisibilityUncaught());
         }
     };
 };
