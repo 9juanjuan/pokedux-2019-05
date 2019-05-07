@@ -18,7 +18,8 @@ const VISIBILITY_CAUGHT = 'caught';
 const VISIBILITY_UNCAUGHT = 'uncaught';
 
 const initialState = {
-    ...initialCards, 
+    ...initialCards, // This spreads the cards: [...] into this spot to initialState 
+    // cards: initialCards.cards /// This line is the equivalent of ...initialCards
     visibilityFilter: VISIBILITY_ALL
 };
 //State is an object with cards as a property
@@ -105,7 +106,7 @@ function visibility( state=initialState.visibilityFilter, action={type: ''}) {
             return VISIBILITY_ALL;
         break;
         case ACTION_VISIBILITY_CAUGHT:
-            return VISBILITY_CAUGHT;
+            return VISIBILITY_CAUGHT;
         break;
         case ACTION_VISIBILITY_UNCAUGHT:
             return VISIBILITY_UNCAUGHT ;
@@ -116,7 +117,7 @@ function visibility( state=initialState.visibilityFilter, action={type: ''}) {
     }
 }
 // combines both reducers
-const rootReducer = combinedReducers({
+const rootReducer = combineReducers({
     cards: cards,
     visiblityFilter: visibility
 })
