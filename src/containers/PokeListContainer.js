@@ -2,9 +2,10 @@
 // Grab stuff from redux
 // grab a dumb component
 // smash them together.
+import { connect } from 'react-redux';
+import PokeList from '../components/PokeList';
 
-import { connect } from 'react-redux'
-import PokeList from '../components/PokeList'
+import { catchCard } from '../actions-reducers';
 
 // We have two jobs: -
 // -tell it how to map redux state to react props 
@@ -19,9 +20,17 @@ const mapStateToProps = (state) => {
     }
 };
 
+const mapDispatchToProps = (dispatch) => {
+    // return our own custom props object
+    return {
+        handleClick: (id) => {
+            dispatch(catchCard(id));
+        }
+    };
+};
 
 // const makeComponentSmart
-const wireUpTheComponent = connect(mapStateToProps);
+const wireUpTheComponent = connect(mapStateToProps, mapDispatchToProps);
 const SmartPokeList = wireUpTheComponent(PokeList);
 
 export default SmartPokeList; 
