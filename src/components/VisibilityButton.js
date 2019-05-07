@@ -6,4 +6,4 @@ function VisibilityButton ({handleClick, label}) {
     );
 }
 
-export default VisbilityButton
+export default VisibilityButton
